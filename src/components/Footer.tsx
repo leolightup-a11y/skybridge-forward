@@ -1,5 +1,5 @@
-import { Plane } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.webp";
 
 export function Footer() {
   return (
@@ -8,15 +8,10 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="h-8 w-8 rounded-lg gradient-teal flex items-center justify-center">
-                <Plane className="h-4 w-4 text-accent-foreground" />
-              </div>
-              <span className="font-display font-bold text-primary-foreground">
-                AeroLanka<span className="text-teal">Cargo</span>
-              </span>
+              <img src={logo} alt="GoGlobal Express" className="h-8 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed">
-              Premium air freight forwarding from Sri Lanka to the world. Trusted by 500+ businesses.
+              Premium air freight forwarding to the world. Trusted by 500+ businesses globally.
             </p>
           </div>
           {[
@@ -42,7 +37,7 @@ export function Footer() {
                   <li key={l}>
                     <Link
                       to="/"
-                      className="text-sm hover:text-teal transition-colors"
+                      className="text-sm hover:text-accent transition-colors"
                     >
                       {l}
                     </Link>
@@ -53,7 +48,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center text-xs">
-          © {new Date().getFullYear()} AeroLankaCargo. All rights reserved. Regulated under Sri Lanka Civil Aviation Authority.
+          © {new Date().getFullYear()} GoGlobal Express. All rights reserved.
         </div>
       </div>
     </footer>

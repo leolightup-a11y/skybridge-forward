@@ -16,11 +16,10 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Cargo aircraft over Sri Lanka"
+          alt="Cargo aircraft"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 gradient-hero opacity-85" />
-        {/* Animated grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -32,26 +31,25 @@ export function HeroSection() {
 
       <div className="container relative z-10 mx-auto px-4 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — Copy */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal/30 bg-teal/10 mb-6">
-              <Globe className="h-3.5 w-3.5 text-teal" />
-              <span className="text-xs font-medium text-teal">
-                Sri Lanka's Premium Air Freight Partner
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 mb-6">
+              <Globe className="h-3.5 w-3.5 text-accent" />
+              <span className="text-xs font-medium text-accent">
+                Your Global Express Partner
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-primary-foreground mb-6">
               Ship Globally,{" "}
-              <span className="text-gradient-teal">Trust Locally</span>
+              <span className="text-gradient-teal">Express Delivery</span>
             </h1>
 
             <p className="text-lg text-primary-foreground/70 max-w-lg mb-8 font-light">
-              Premium air freight forwarding from Colombo to 195+ countries. Real-time
+              Premium air freight forwarding to 195+ countries. Real-time
               tracking, milestone-based escrow, and aviation-grade security for every
               shipment.
             </p>
@@ -82,7 +80,6 @@ export function HeroSection() {
               </button>
             </div>
 
-            {/* CTA */}
             <motion.div
               key={userType}
               initial={{ opacity: 0, x: -10 }}
@@ -110,7 +107,6 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right — Trust stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,7 +126,7 @@ export function HeroSection() {
                 transition={{ delay: 0.5 + i * 0.1 }}
                 className="glass-dark rounded-2xl p-6 group hover:shadow-teal-glow transition-shadow"
               >
-                <stat.icon className="h-5 w-5 text-teal mb-3" />
+                <stat.icon className="h-5 w-5 text-accent mb-3" />
                 <p className="text-3xl font-display font-bold text-primary-foreground">
                   {stat.value}
                 </p>
