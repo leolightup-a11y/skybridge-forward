@@ -1,0 +1,61 @@
+import { Plane } from "lucide-react";
+import { Link } from "react-router-dom";
+
+export function Footer() {
+  return (
+    <footer className="gradient-hero text-primary-foreground/70 py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-10">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-8 w-8 rounded-lg gradient-teal flex items-center justify-center">
+                <Plane className="h-4 w-4 text-accent-foreground" />
+              </div>
+              <span className="font-display font-bold text-primary-foreground">
+                AeroLanka<span className="text-teal">Cargo</span>
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed">
+              Premium air freight forwarding from Sri Lanka to the world. Trusted by 500+ businesses.
+            </p>
+          </div>
+          {[
+            {
+              title: "Services",
+              links: ["Air Freight", "Express Shipping", "B2B Solutions", "Customs Clearance"],
+            },
+            {
+              title: "Resources",
+              links: ["Freight Calculator", "Track Shipment", "Prohibited Items", "Duty Estimator"],
+            },
+            {
+              title: "Company",
+              links: ["About Us", "Contact", "Careers", "Terms of Service"],
+            },
+          ].map((col) => (
+            <div key={col.title}>
+              <h4 className="font-display font-semibold text-primary-foreground mb-4 text-sm uppercase tracking-wider">
+                {col.title}
+              </h4>
+              <ul className="space-y-2">
+                {col.links.map((l) => (
+                  <li key={l}>
+                    <Link
+                      to="/"
+                      className="text-sm hover:text-teal transition-colors"
+                    >
+                      {l}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center text-xs">
+          © {new Date().getFullYear()} AeroLankaCargo. All rights reserved. Regulated under Sri Lanka Civil Aviation Authority.
+        </div>
+      </div>
+    </footer>
+  );
+}
