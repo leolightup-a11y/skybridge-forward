@@ -15,7 +15,7 @@ const features = [
   {
     icon: Globe,
     title: "195+ Destinations",
-    desc: "Ship from Colombo, Katunayake & Hambantota to anywhere in the world via premium carriers.",
+    desc: "Ship globally via premium carriers with full coverage and competitive rates.",
   },
   {
     icon: Plane,
@@ -25,12 +25,12 @@ const features = [
   {
     icon: FileText,
     title: "B2B Document Vault",
-    desc: "Securely manage EDB permits, commercial invoices, and packing lists in one place.",
+    desc: "Securely manage permits, commercial invoices, and packing lists in one place.",
   },
   {
     icon: CreditCard,
-    title: "Local Payment Methods",
-    desc: "Pay with FriMi, Genie, LankaPay or international cards. All methods fully supported.",
+    title: "Flexible Payments",
+    desc: "Pay with local and international payment methods. All options fully supported.",
   },
 ];
 
@@ -45,11 +45,10 @@ export function FeaturesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Built for <span className="text-gradient-teal">Sri Lankan</span> Exporters
+            Built for <span className="text-gradient-teal">Global</span> Exporters
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Every feature designed with the unique needs of Sri Lankan businesses and
-            individuals shipping internationally.
+            Every feature designed for businesses and individuals shipping internationally.
           </p>
         </motion.div>
 
