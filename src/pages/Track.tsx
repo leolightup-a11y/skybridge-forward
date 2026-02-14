@@ -11,6 +11,7 @@ import {
   MapPin,
   FileText,
 } from "lucide-react";
+import { TrackingMap } from "@/components/TrackingMap";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Navbar } from "@/components/Navbar";
@@ -244,6 +245,15 @@ export default function TrackPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Tracking Map */}
+            <div className="mb-8">
+              <TrackingMap
+                status={phase === "escrow" ? "Processing" : phase === "delivered" ? "Delivered" : "Departed"}
+                destinationCity="London (LHR)"
+                destinationCoords={[51.4700, -0.4543]}
+              />
             </div>
 
             {/* Milestone Timeline */}
