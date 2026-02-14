@@ -108,7 +108,51 @@ export default function TrackPage() {
   const phase = getShipmentPhase(demoMilestones);
 
   const handleTrack = () => {
-    if (trackingId.trim()) setShowResults(true);
+    const id = trackingId.trim();
+    if (!id) return;
+
+    // SriLankan Airlines Cargo — AWB prefix 160
+    if (id.startsWith("160")) {
+      window.open(
+        `https://www.srilankancargo.com/tracking?awb=${encodeURIComponent(id)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
+
+    // DHL — typically 10-digit numeric or starts with common DHL patterns
+    if (/^\d{10,11}$/.test(id) || /^[JJ|GM|JVGL]/i.test(id)) {
+      window.open(
+        `https://www.dhl.com/global-en/home/tracking/tracking-express.html?submit=1&tracking-id=${encodeURIComponent(id)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
+
+    // FedEx — typically 12-15 digits
+    if (/^\d{12,15}$/.test(id)) {
+      window.open(
+        `https://www.fedex.com/fedextrack/?trknbr=${encodeURIComponent(id)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
+
+    // UPS — starts with 1Z
+    if (/^1Z/i.test(id)) {
+      window.open(
+        `https://www.ups.com/track?tracknum=${encodeURIComponent(id)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
+
+    // Fallback — show demo milestones
+    setShowResults(true);
   };
 
   return (
