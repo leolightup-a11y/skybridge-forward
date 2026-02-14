@@ -1,1 +1,4 @@
 project_id = "seitlzrgvzpbxwryhraa"
+
+[functions.aftership-webhook]
+verify_jwt = false
