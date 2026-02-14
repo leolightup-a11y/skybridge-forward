@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      shipments: {
+        Row: {
+          carrier: string | null
+          created_at: string
+          id: string
+          location: string | null
+          status: string | null
+          tracking_number: string
+          updated_at: string
+        }
+        Insert: {
+          carrier?: string | null
+          created_at?: string
+          id?: string
+          location?: string | null
+          status?: string | null
+          tracking_number: string
+          updated_at?: string
+        }
+        Update: {
+          carrier?: string | null
+          created_at?: string
+          id?: string
+          location?: string | null
+          status?: string | null
+          tracking_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
