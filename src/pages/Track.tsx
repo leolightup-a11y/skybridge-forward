@@ -108,16 +108,42 @@ export default function TrackPage() {
     setTrustVerified(false);
 
     try {
-      const { data, error } = await supabase.functions.invoke("track-shipment", {
+      // Try database first
+      const { data } = await supabase.functions.invoke("track-shipment", {
         body: { tracking_number: id },
       });
 
       if (data?.success && data.shipment) {
         setShipment(data.shipment);
         setTrustVerified(true);
+        setLoading(false);
+        setShowResults(true);
+        return;
       }
     } catch (err) {
-      console.error("Track error:", err);
+      console.error("DB lookup error:", err);
+    }
+
+    // Fallback: use universal scraper
+    try {
+      const { data } = await supabase.functions.invoke("scrape-tracking", {
+        body: { tracking_id: id },
+      });
+
+      if (data?.success) {
+        setShipment({
+          tracking_number: id,
+          status: data.status,
+          location: data.location,
+          carrier: data.carrier,
+          coordinates: data.coordinates,
+          updated_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+        });
+        setTrustVerified(!!data.verified);
+      }
+    } catch (err) {
+      console.error("Scrape error:", err);
     } finally {
       setLoading(false);
       setShowResults(true);
