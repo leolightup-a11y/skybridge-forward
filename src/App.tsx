@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Calculator from "./pages/Calculator";
 import Track from "./pages/Track";
+import UniversalTrack from "./pages/UniversalTrack";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/track" element={<Track />} />
+          <Route path="/track/:id" element={<UniversalTrack />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
