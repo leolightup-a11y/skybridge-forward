@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
     if (!data) {
       return new Response(
         JSON.stringify({ success: false, error: "Shipment not found" }),
-        { status: 404, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
